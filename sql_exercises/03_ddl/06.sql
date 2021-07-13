@@ -12,4 +12,7 @@ ALTER TABLE stars
 CREATE TYPE spectral_type_enum AS ENUM ('O', 'B', 'A', 'F', 'G', 'K', 'M');
 
 ALTER TABLE stars
-  ALTER COLUMN spectral_type TYPE spectral_type_enum;
+  ALTER COLUMN spectral_type TYPE spectral_type_enum
+                             USING spectral_type::spectral_type_enum;
+-- The reason for this USING clause is that there is no defined way in PostgreSQL to convert char values to an enumerated type: the USING clause tells PostgreSQL to simply use the existing values from spectral_type as though they are the enumerated values.
+

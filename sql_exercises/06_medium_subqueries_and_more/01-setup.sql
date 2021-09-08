@@ -1,5 +1,4 @@
 CREATE DATABASE auction;
-\c auction
 
 CREATE TABLE bidders (
   id serial PRIMARY KEY,

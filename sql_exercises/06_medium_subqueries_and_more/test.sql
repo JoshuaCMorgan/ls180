@@ -1,0 +1,1 @@
+select bidder_id from bids order by bidder_id;
